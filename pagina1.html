@@ -1,0 +1,225 @@
+<html>
+<head>
+    <title>titulo  pagina web</title>
+
+    <!-- estilo CSS -->
+    
+    <style>
+        #pagina {
+            width: 50%;
+            height: 100%;
+            margin: auto;
+            background-color: antiquewhite;
+        }
+
+        #imagem{
+            width: 70%;
+            margin: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        h2,
+        h3 {
+            color: brown;
+        }
+
+        p{
+            width: 50%;
+            margin: auto;
+        }
+
+        table
+        th,
+        td {
+            border: 3px solid palevioletred;
+        }
+
+        table.centro {
+            width: 400px;
+            height: 100px;
+            margin-left: auto;
+            margin-right: auto;
+
+        }
+
+        footer {
+            text-align: center;
+            padding: 3px;
+            background-color: rgb(0, 153, 255);
+            color: white;
+            margin: 5;
+
+           
+        }
+          
+
+    </style>
+
+
+
+
+
+</head>
+<body onload="autoOpacidade()"> 
+   <div id="pagina"></div>
+   <script>
+       var pagina = document.getElementById('pagina');
+       var indImagem = 1;
+       var opacidade = 1;
+       var reduzir = true;
+
+       pagina.innerHTML = '<h2> Exemplo for</h2>';
+       for (i = 0; i<3; i++){
+           pagina.innerHTML += '<h3>' + i + '</h3>';
+       }
+
+       pagina.innerHTML += '<h3> Exemplo do while </h3>';
+       var i = 1;
+       do{
+             pagina.innerHTML += '<h3>' +i+ '<h3>'
+            i++;
+            
+       }while(i < 5);
+
+       pagina.innerHTML += '<hr>'
+
+       pagina.innerHTML += '<img id="imagem" onclick="trocarImagem()" src= "https://softgraf.com/img/img1.jpg"/>'
+
+       function trocarImagem(){
+          var imagem = document.getElementById('imagem');
+          indImagem ++;
+
+          if (indImagem >7)
+          indImagem =1;
+
+          imagem.src = 'https://softgraf.com/img/img'+ indImagem +'.jpg';
+       }
+       //arrow function
+       const mudarOpacidade = () => {
+            var imagem = document.getElementById('imagem');
+
+            if(opacidade <=0.1)
+                reduzir = false;
+                else if (opacidade >=1)
+                reduzir = true
+
+            if (reduzir)
+                opacidade -= 0.1;
+            else
+                opacidade += 0.1;
+
+            
+            imagem.style.opacity = opacidade;
+    }
+
+    const autoOpacidade = () => {
+        //muda a opacidade a cada 0,1 segundos
+        setInterval("mudarOpacidade()", 100);
+    }
+           
+    
+
+   </script>
+
+   <hr>
+   <p>
+
+Lorem ipsum dolor, sit amet consectetur
+ adipisicing elit. Molestiae, distinctio nulla deserunt, consequuntur
+  nihil et sapiente reiciendis itaque unde iure est 
+  perspiciatis repellat ea in rem. Nam facere cupiditate beatae.
+
+</p>
+
+<label for="file">baixando arquivo</label>
+<progress id="file"value="32" max="100">32%</progress>
+
+<ol type="I">
+    <li>item 1</li>
+    <li>item 2</li>
+    <li>item 3</li>
+</ol>
+
+<ul style="list-style-type:square;"> 
+    <li>cafe</li>
+    <li>cha</li>
+    <li>leite</li>
+</ul>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vacB1dMiJkw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<hr>
+
+<form action="/pagina_destino.php" method="post">
+    <label >nome:</label>
+    <input type="text" name="nome"><br>
+
+    <label >sobrenome</label>
+    <input type="text" name="sobrenome">
+
+    <input type="submit">
+
+</form>
+
+<hr>
+<canvas id="meuCanvas"></canvas>
+
+<script>
+
+    var canvas = document.getElementById("meuCanvas");
+    var ctx = canvas.getContext("2d");
+
+
+    ctx.fillStyle = "red";
+    ctx.fillRect(20,20,78,50);
+
+    //liga a transparencia
+
+    ctx.globalAlpha = 0.2;
+    ctx.fillStyle = "blue";
+    ctx.fillRect(50,58,75,50);
+
+    ctx.fillStyle = "green";
+    ctx.fillRect(80,88,75,50);
+
+
+
+
+</script>
+
+<h1>Exemplo de Tabela</h1>
+<table class="centro">
+    <tr>
+        <th>Mes</th>
+        <th>recebimento</th>
+    </tr>
+
+    <tr>
+        <td>Janeiro</td>
+        <td>R$ 100,00</td>
+    </tr>
+
+    <tr>
+        <td>fevereiro</td>
+        <td>R$ 180,00</td>
+    </tr>
+   
+</table>
+
+<footer>
+    <p>Autor: Ketlyn Hornung <br>
+        <a href="https://www.softgraf.com/site/agenda">softgraf turmas</a>
+        
+    </p>
+</footer>
+ 
+
+</body>
+
+
+
+
+
+
+</html>
